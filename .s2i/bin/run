@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export_vars=$(cgroup-limits); export $export_vars
+
+exec php -S 0.0.0.0:8000 -t /opt/app-root/src
