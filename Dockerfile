@@ -43,8 +43,7 @@ COPY ./.s2i/bin/ $STI_SCRIPTS_PATH
 # writeable as OpenShift default security model is to run the container under
 # random UID.
 RUN chown -R 1001:0 /opt/app-root && \
-    chmod -R ug+rwx /opt/app-root && \
-    chmod +x /opt/app-root/services.sh
+    chmod -R ug+rwx /opt/app-root
 
 USER 1001
 
