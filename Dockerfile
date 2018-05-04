@@ -53,7 +53,15 @@ COPY ./.s2i/bin/ $STI_SCRIPTS_PATH
 # writeable as OpenShift default security model is to run the container under
 # random UID.
 RUN chown -R 1001:0 /opt/app-root && \
-    chmod -R ug+rwx /opt/app-root
+    chmod -R ug+rwx /opt/app-root && \
+    ln -s /opt/rh/rh-php71/root/usr/bin/pear  /usr/local/bin/pear && \
+    ln -s /opt/rh/rh-php71/root/usr/bin/peardev  /usr/local/bin/peardev && \
+    ln -s /opt/rh/rh-php71/root/usr/bin/pecl  /usr/local/bin/pecl && \
+    ln -s /opt/rh/rh-php71/root/usr/bin/phar  /usr/local/bin/phar && \
+    ln -s /opt/rh/rh-php71/root/usr/bin/phar.phar /usr/local/bin/phar.phar && \
+    ln -s /opt/rh/rh-php71/root/usr/bin/php  /usr/local/bin/php && \
+    ln -s /opt/rh/rh-php71/root/usr/bin/php-cgi /usr/local/bin/php-cgi && \
+    ln -s /opt/rh/rh-php71/root/usr/bin/phpize  /usr/local/bin/phpize
 
 USER 1001
 
