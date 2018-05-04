@@ -44,8 +44,8 @@ COPY ./.s2i/bin/ $STI_SCRIPTS_PATH
 # random UID.
 RUN chown -R 1001:0 /opt/app-root && \
     chmod -R ug+rwx /opt/app-root && \
-    chmod +x $STI_SCRIPTS_PATH/bin/run && /
-    chmod +x $STI_SCRIPTS_PATH/bin/assemble && /
+    chmod +x $STI_SCRIPTS_PATH/bin/run && \
+    chmod +x $STI_SCRIPTS_PATH/bin/assemble && \
     chmod +x $STI_SCRIPTS_PATH/bin/usage
 
 USER 1001
